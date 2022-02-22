@@ -33,12 +33,12 @@ class CharList extends Component {
 		});
 	};
 
-	onCharListLoaded = (charList) => {
-		this.setState({
-			charList:[],
+	onCharListLoaded = (newCharList) => {
+		this.setState(({charList}) => ({
+			charList: [...charList, ...newCharList],
 			loading: false,
 			newItemsLoading: false,
-		});
+		}));
 	};
 
 	onError = () => {
